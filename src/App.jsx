@@ -6,10 +6,7 @@ function App() {
   const [currentTask, setCurrentTask] = useState('')
 
   const addTask = () => {
-    if (currentTask !== '') {
-      setTodoList([...todoList, currentTask])
-      setCurrentTask('')
-    }
+    setTodoList([...todoList, currentTask])
   }
   
   return (
@@ -18,9 +15,14 @@ function App() {
         <h1>To Dos</h1>
         <div>
           <input type='text' placeholder='Task' onChange={(event) => {setCurrentTask(event.target.value)}}/>
-          <button onClick={}>Add Task</button>
+          <button onClick={addTask}>Add Task</button>
         </div>
         <hr />
+         <ul>
+          {todoList.map((task, index) => {
+            return <li key={index}>{task}</li>
+          })}
+         </ul>
       </div>
     </>
   )
