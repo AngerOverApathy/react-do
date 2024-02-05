@@ -69,3 +69,8 @@ button:hover {
 .delete-button:hover {
   background-color: #d60000;
 }
+
+ul {
+  display: grid;
+  place-items: center;
+}

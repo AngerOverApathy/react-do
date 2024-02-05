@@ -9,7 +9,7 @@ function App() {
     setTodoList([...todoList, currentTask])
   }
   
-  //return (
+  return (
     <>
       <div className='App'>
         <h1>To Dos</h1>
