@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 
 function App() {
   const [todoList, setTodoList] = useState([])
   const [currentTask, setCurrentTask] = useState('')
 
+  const inputTask = useRef(null)
+
   const addTask = () => {
     setTodoList([...todoList, currentTask])
+    inputTask.current.value = ''
   }
   
   return (
@@ -14,7 +17,12 @@ function App() {
       <div className='App'>
         <h1>To Dos</h1>
         <div>
-          <input type='text' placeholder='Task' onChange={(event) => {setCurrentTask(event.target.value)}}/>
+          <input 
+            ref={inputTask}
+            type='text' 
+            placeholder='Task' 
+            onChange={(event) => {setCurrentTask(event.target.value)}}
+          />
           <button onClick={addTask}>Add Task</button>
         </div>
         <hr />
