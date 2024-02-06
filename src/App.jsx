@@ -35,6 +35,7 @@ function App() {
             ref={inputTask}
             type='text' 
             placeholder='Task' 
+            onKeyDown={(event) => {if (event.keyCode === 13) addTask()}}
             onChange={(event) => {setCurrentTask(event.target.value)}}
           />
           <button onClick={addTask}>Add Task</button>
